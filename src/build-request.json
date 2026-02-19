@@ -1,0 +1,125 @@
+{
+  "kind": "build_request",
+  "title": "Add per-item camera attachment with inline capture",
+  "projectName": "SafeGuard",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Add a small attach image button next to each of the 7 checklist items (Drive thru window, Back door, Front door, Upstairs door, Cash collected, OnlineHM App closed, Staff toilet)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "each checklist should have a small attach image button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each checklist item displays a small attach image button",
+        "Button is positioned next to the checkbox and label",
+        "Button follows neumorphic design system",
+        "Button is touch-friendly with minimum 44px tap target"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "When user clicks the attach image button, display an inline camera interface within the screen (not as a popup or modal) that allows photo capture",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "by clicking on it a small camera window in screen will appear not popup"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Camera interface appears inline within the main screen flow",
+        "Camera is not displayed in a popup, modal, or separate window",
+        "Camera preview is visible and functional",
+        "User can capture photo directly from this inline view"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Allow users to associate the captured photo with the specific checklist item that triggered the camera",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "user can take photo and select the checklist"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Photo is linked to the correct checklist item",
+        "Visual indication shows which item has an attached photo",
+        "User can see thumbnail or confirmation of attached photo per item"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Update the backend submission logic to accept multiple photos, one per checklist item, instead of a single photo for the entire form",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend accepts array of photos with corresponding checklist item identifiers",
+        "Each photo is stored with its associated checklist item",
+        "Submission maintains store name, item statuses, and timestamp as before"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Update the PDF generation to include all captured photos, showing each photo next to its corresponding checklist item",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ]
+      },
+      "acceptanceCriteria": [
+        "PDF displays each checklist item with its associated photo",
+        "Photos are properly formatted and sized within the PDF",
+        "PDF maintains store name, item statuses, and timestamp"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Update form reset functionality to clear all per-item photos when the form is reset after submission",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All captured photos are removed on form reset",
+        "All attach image buttons return to initial state",
+        "Camera interface is closed if open"
+      ]
+    }
+  ],
+  "constraints": [
+    "Camera interface must be inline within the main screen, not a popup or modal",
+    "Maintain existing neumorphic design system throughout new components",
+    "Preserve mobile-optimized touch targets (minimum 44px)",
+    "Keep existing 7 predefined checklist items unchanged"
+  ],
+  "nonGoals": [
+    "File upload functionality",
+    "Editing or removing individual photos after capture",
+    "Video recording capability",
+    "Multiple photos per checklist item"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

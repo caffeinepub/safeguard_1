@@ -1,0 +1,108 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-small-attach-image-button-next-to-each-of-the-7-checklist-items-drive-thru-window-back-door-front-door-upstairs-door-cash-collected-onlinehm-app-closed-staff-toilet",
+      "featureTitle": "Add a small attach image button next to each of the 7 checklist items (Drive thru window, Back door, Front door, Upstairs door, Cash collected, OnlineHM App closed, Staff toilet)",
+      "files": [
+        "frontend/src/components/ChecklistForm.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-user-clicks-the-attach-image-button-display-an-inline-camera-interface-within-the-screen-not-as-a-popup-or-modal-that-allows-photo-capture",
+      "featureTitle": "When user clicks the attach image button, display an inline camera interface within the screen (not as a popup or modal) that allows photo capture",
+      "files": [
+        "frontend/src/components/CameraCapture.tsx",
+        "frontend/src/components/ChecklistForm.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-allow-users-to-associate-the-captured-photo-with-the-specific-checklist-item-that-triggered-the-camera",
+      "featureTitle": "Allow users to associate the captured photo with the specific checklist item that triggered the camera",
+      "files": [
+        "frontend/src/components/ChecklistForm.tsx",
+        "frontend/src/types/checklist.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-pdf-generation-to-include-all-captured-photos-showing-each-photo-next-to-its-corresponding-checklist-item",
+      "featureTitle": "Update the PDF generation to include all captured photos, showing each photo next to its corresponding checklist item",
+      "files": [
+        "frontend/src/components/ChecklistForm.tsx",
+        "frontend/src/utils/pdfGenerator.ts"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-form-reset-functionality-to-clear-all-per-item-photos-when-the-form-is-reset-after-submission",
+      "featureTitle": "Update form reset functionality to clear all per-item photos when the form is reset after submission",
+      "files": [
+        "frontend/src/components/ChecklistForm.tsx"
+      ],
+      "components": [
+        "camera@1.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "frontend/src/App.tsx": "Main application component with header and ChecklistForm, using neumorphic design with no footer branding.",
+  "frontend/src/components/ChecklistForm.tsx": "Main form component managing store name input, 7 checklist items with checkboxes, per-item camera attachment buttons, inline camera capture for each item, photo state management, form submission, PDF generation with per-item photos, and form reset functionality.",
+  "frontend/src/components/CameraCapture.tsx": "Inline camera component using useCamera hook for per-item photo capture with auto-start, preview, capture/switch/close controls, and explicit dimensions to prevent layout collapse.",
+  "frontend/src/components/NeumorphicCard.tsx": "Reusable card container component with neumorphic raised shadow styling.",
+  "frontend/src/components/NeumorphicButton.tsx": "Reusable button component with neumorphic styling, touch-friendly sizing (44px minimum), and primary/secondary variants.",
+  "frontend/src/components/NeumorphicInput.tsx": "Reusable input field component with neumorphic inset styling and mobile-optimized touch targets, directly extending InputHTMLAttributes without an empty interface.",
+  "frontend/src/types/checklist.ts": "TypeScript interfaces for checklist data structure with ChecklistItem including optional photo property (ExternalBlob), and the 7 predefined checklist item names constant.",
+  "frontend/src/hooks/useQueries.ts": "React Query hook for submitting checklist data to backend, converting per-item File photos to ExternalBlob and associating them with their corresponding checklist items.",
+  "frontend/src/utils/pdfGenerator.ts": "PDF generation utility using browser print API to create formatted PDF with store name, timestamp, checklist items, and per-item photos displayed next to their corresponding items.",
+  "frontend/src/index.css": "Global styles with neumorphic design system using OKLCH colors, custom shadow utilities for raised/inset effects, and mobile-optimized touch handling.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with neumorphic color tokens and custom shadow utilities for the design system.",
+  "frontend/index.html": "HTML entry point with mobile-optimized viewport settings and SafeGuard title."
+}

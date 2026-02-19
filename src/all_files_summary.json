@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Main actor defining ChecklistItem and Submission types with per-item photo support, storing submissions by Principal, and providing submitChecklist, getSubmission, and getAllSubmissions endpoints; includes MixinStorage for blob handling and Migration.run for state upgrades.",
+  "backend/migration.mo": "Migration module transforming old actor state (single photo per submission) to new state (photo per checklist item) by mapping old submissions and distributing the single photo to all items in each submission.",
+  "feature_evidence.json": "Feature evidence report documenting five implemented features: per-item attach image buttons, inline camera interface, photo-to-item association, PDF generation with photos, and form reset clearing photos.",
+  "frontend-file-summaries.txt": "JSON summary of frontend files describing the neumorphic-styled checklist app with per-item camera capture, photo management, PDF generation, and mobile-optimized components.",
+  "frontend/index.css": "Tailwind CSS configuration with OKLCH color variables for neumorphic design system in light and dark modes, including custom shadow utilities for raised/inset effects.",
+  "frontend/index.html": "HTML entry point with mobile-optimized viewport settings, web app capability meta tags, and SafeGuard title.",
+  "frontend/src/App.tsx": "Root application component rendering SafeGuard header and ChecklistForm within a neumorphic-styled layout with no footer branding.",
+  "frontend/src/components/CameraCapture.tsx": "Inline camera component with auto-start, video preview, capture/switch/close controls, and callbacks for photo capture and close events; handles unsupported camera gracefully.",
+  "frontend/src/components/ChecklistForm.tsx": "Main form managing store name, 7 checklist items with completion toggles, per-item camera attachment buttons, inline camera display, photo state (Map<string, File>), submission with PDF generation, and form reset clearing all photos.",
+  "frontend/src/components/NeumorphicButton.tsx": "Reusable button component with neumorphic raised styling, primary/secondary variants, touch-friendly 44px minimum dimensions, and active pressed state.",
+  "frontend/src/components/NeumorphicCard.tsx": "Reusable card container component with neumorphic raised shadow styling and rounded corners.",
+  "frontend/src/components/NeumorphicInput.tsx": "Reusable input field component with neumorphic inset styling, 44px minimum height for touch targets, and focus ring styling.",
+  "frontend/src/hooks/useActor.ts": "React Query hook creating authenticated or anonymous backend actor based on Internet Identity, invalidating dependent queries when actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React hook and provider for Internet Identity authentication on ICP, managing login state, identity persistence, and delegation validation with configurable AuthClient options.",
+  "frontend/src/hooks/useQueries.ts": "React Query mutation hook for submitting checklist data with photos to the backend actor, converting File objects to ExternalBlob format and invalidating queries on success.",
+  "frontend/src/index.css": "Tailwind CSS configuration with neumorphic design system variables (raised, inset, button effects) and mobile optimizations including touch-friendly interactions and responsive utilities.",
+  "frontend/src/main.tsx": "Application entry point that renders the root component wrapped with QueryClientProvider and InternetIdentityProvider for state management and authentication.",
+  "frontend/src/types/checklist.ts": "TypeScript types defining ChecklistItem interface with optional ExternalBlob photo and a constant array of 7 predefined checklist item names.",
+  "frontend/src/utils/pdfGenerator.ts": "Client-side PDF generator that creates a printable HTML document with store name, timestamp, checklist items with checkboxes, and embedded photo data URLs.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with neumorphic color system, custom shadows, OKLCH color space support, and responsive container settings.",
+  "project_state.json": "Project metadata documenting a mobile-friendly neumorphic checklist app with 7 predefined items, camera-only photo capture, client-side PDF generation, and completed feature requirements."
+}
