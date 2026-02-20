@@ -1,10 +1,10 @@
 {
   "frontend/src/App.tsx": "Main application component with header and ChecklistForm, using neumorphic design with no footer branding.",
-  "frontend/src/components/ChecklistForm.tsx": "Main form component managing store name input, 7 checklist items with checkboxes, per-item camera attachment buttons, inline camera capture for each item, photo state management, form submission, PDF generation with per-item photos, and form reset functionality.",
+  "frontend/src/components/ChecklistForm.tsx": "Main form component managing store name input, 7 checklist items with checkboxes, per-item camera attachment buttons, inline camera capture, photo state management, form submission, persistent PDF download button after submission, reset functionality to clear all data and return to initial state, and disabled form editing after submission.",
   "frontend/src/components/CameraCapture.tsx": "Inline camera component using useCamera hook for per-item photo capture with auto-start, preview, capture/switch/close controls, and explicit dimensions to prevent layout collapse.",
   "frontend/src/components/NeumorphicCard.tsx": "Reusable card container component with neumorphic raised shadow styling.",
-  "frontend/src/components/NeumorphicButton.tsx": "Reusable button component with neumorphic styling, touch-friendly sizing (44px minimum), and primary/secondary variants.",
-  "frontend/src/components/NeumorphicInput.tsx": "Reusable input field component with neumorphic inset styling and mobile-optimized touch targets, directly extending InputHTMLAttributes without an empty interface.",
+  "frontend/src/components/NeumorphicButton.tsx": "Reusable button component with neumorphic styling, touch-friendly sizing (44px minimum), primary/secondary variants, and proper disabled state handling.",
+  "frontend/src/components/NeumorphicInput.tsx": "Reusable input field component with neumorphic inset styling, mobile-optimized touch targets, and disabled state support.",
   "frontend/src/types/checklist.ts": "TypeScript interfaces for checklist data structure with ChecklistItem including optional photo property (ExternalBlob), and the 7 predefined checklist item names constant.",
   "frontend/src/hooks/useQueries.ts": "React Query hook for submitting checklist data to backend, converting per-item File photos to ExternalBlob and associating them with their corresponding checklist items.",
   "frontend/src/utils/pdfGenerator.ts": "PDF generation utility using browser print API to create formatted PDF with store name, timestamp, checklist items, and per-item photos displayed next to their corresponding items.",

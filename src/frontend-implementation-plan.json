@@ -1,102 +1,54 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add per-item camera attachment with inline capture",
+  "title": "Add persistent PDF download and reset functionality",
   "requirements": [
     {
-      "id": "REQ-10",
-      "summary": "Add attach image button next to each of the 7 checklist items",
+      "id": "REQ-1",
+      "summary": "Display a 'Download PDF' button after checklist submission that allows manual PDF download",
       "acceptanceCriteria": [
-        "Each checklist item displays a small attach image button",
-        "Button is positioned next to the checkbox and label",
-        "Button follows neumorphic design system",
-        "Button is touch-friendly with minimum 44px tap target"
+        "A 'Download PDF' button appears after successful checklist submission",
+        "Clicking the button triggers a PDF download",
+        "The button remains visible and functional after download"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ChecklistForm.tsx",
           "operation": "modify",
-          "description": "Add attach image button component next to each checklist item. Position button after checkbox and label in each item's row. Use NeumorphicButton component with icon or compact text to maintain visual balance. Ensure 44px minimum tap target for mobile touch interactions. Store active camera item state to track which item's camera is open."
+          "description": "Add state to track whether a PDF has been generated (e.g., isPdfReady boolean). After successful form submission, set this state to true. Conditionally render a 'Download PDF' button when isPdfReady is true. The button should call the existing pdfGenerator utility with the current form data (store name, checklist items, photos) and trigger a browser download. Style the button using the NeumorphicButton component to maintain the neumorphic design system."
         }
       ]
     },
     {
-      "id": "REQ-11",
-      "summary": "Display inline camera interface within screen for photo capture",
+      "id": "REQ-2",
+      "summary": "Keep the PDF download button visible and functional until the user clicks a Reset button",
       "acceptanceCriteria": [
-        "Camera interface appears inline within the main screen flow",
-        "Camera is not displayed in a popup, modal, or separate window",
-        "Camera preview is visible and functional",
-        "User can capture photo directly from this inline view"
+        "The Download PDF button persists after first download",
+        "User can click Download PDF multiple times without resubmitting",
+        "The button only disappears when Reset is clicked"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ChecklistForm.tsx",
           "operation": "modify",
-          "description": "Integrate inline camera view below the active checklist item when its attach button is clicked. Use the camera component's useCamera hook to support inline camera preview. Verify the component's usage instructions before implementing. Ensure camera appears within the main form flow, not as a modal or popup. Display camera controls (capture, switch, close) inline with the preview. Set explicit preview dimensions to prevent layout collapse."
-        },
-        {
-          "path": "frontend/src/components/CameraCapture.tsx",
-          "operation": "modify",
-          "description": "Update CameraCapture component to support inline rendering mode and per-item photo management. Add props for active item context and callback for photo association. Ensure camera preview has stable aspect ratio and explicit dimensions. Use the camera component's useCamera hook with environment facing mode. Verify the component's usage instructions before implementing. Include capture, switch camera, and close controls inline within preview area."
+          "description": "Ensure the isPdfReady state persists after the first download, allowing the Download PDF button to remain visible. The button should remain clickable and trigger a new PDF download each time using the current form data without requiring resubmission. Only clear the isPdfReady state when the Reset button is clicked (implemented in REQ-3)."
         }
       ]
     },
     {
-      "id": "REQ-12",
-      "summary": "Associate captured photos with specific checklist items",
+      "id": "REQ-3",
+      "summary": "Add a 'Reset' button that clears the checklist, removes the PDF download button, and allows new submissions",
       "acceptanceCriteria": [
-        "Photo is linked to the correct checklist item",
-        "Visual indication shows which item has an attached photo",
-        "User can see thumbnail or confirmation of attached photo per item"
+        "A 'Reset' button is visible when the PDF download button is shown",
+        "Clicking Reset clears all form data including store name, checkboxes, and photos",
+        "Clicking Reset hides the PDF download button and returns to the initial form state",
+        "After reset, user can submit a new checklist and generate a new PDF"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/ChecklistForm.tsx",
           "operation": "modify",
-          "description": "Maintain state mapping each checklist item to its captured photo (Map or object with item name as key, File/ExternalBlob as value). When photo is captured via camera component, store it with the active item identifier. Display thumbnail or icon indicator next to items that have attached photos. Update photo state when camera completes capture for the active item."
-        },
-        {
-          "path": "frontend/src/types/checklist.ts",
-          "operation": "modify",
-          "description": "Update ChecklistItem interface to include optional photo property matching the backend ExternalBlob type. Maintain exported array of 7 predefined checklist item names unchanged."
-        }
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "summary": "Update PDF generation to show photos next to corresponding checklist items",
-      "acceptanceCriteria": [
-        "PDF displays each checklist item with its associated photo",
-        "Photos are properly formatted and sized within the PDF",
-        "PDF maintains store name, item statuses, and timestamp"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/utils/pdfGenerator.ts",
-          "operation": "modify",
-          "description": "Update PDF generation function to accept array of photos mapped to checklist items. For each checklist item in the PDF, display its associated photo (if present) next to the checkbox and label. Convert photo Files or ExternalBlobs to data URLs for embedding in PDF HTML. Size photos appropriately within PDF layout. Preserve existing store name, item statuses, and timestamp display."
-        },
-        {
-          "path": "frontend/src/components/ChecklistForm.tsx",
-          "operation": "modify",
-          "description": "Pass per-item photos map to PDF generator function when generating PDF. Ensure all captured photos are included in the PDF generation call with their corresponding item identifiers."
-        }
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "summary": "Clear all per-item photos on form reset",
-      "acceptanceCriteria": [
-        "All captured photos are removed on form reset",
-        "All attach image buttons return to initial state",
-        "Camera interface is closed if open"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/ChecklistForm.tsx",
-          "operation": "modify",
-          "description": "Update form reset handler to clear all per-item photos from state (empty the photos map/object). Reset any active camera item state to close inline camera if open. Return all attach image buttons to initial state without photo indicators. Ensure reset happens after successful submission."
+          "description": "Add a Reset button that appears alongside the Download PDF button when isPdfReady is true. When clicked, the Reset button should: clear the storeName field, reset all checklist item completion states to false, clear all photos from the photo Map state, set isPdfReady to false (hiding both buttons), and return the form to its initial empty state. Style the button using the NeumorphicButton component with secondary variant to differentiate it from the Download PDF button. After reset, the user should be able to fill out and submit a new checklist."
         }
       ]
     }

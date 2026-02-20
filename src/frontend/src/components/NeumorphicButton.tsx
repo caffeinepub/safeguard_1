@@ -1,31 +1,25 @@
-import { ReactNode, ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 interface NeumorphicButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
   variant?: 'primary' | 'secondary';
 }
 
 export default function NeumorphicButton({
   children,
-  variant = 'primary',
   className = '',
+  variant = 'primary',
   disabled,
   ...props
 }: NeumorphicButtonProps) {
+  const baseClasses = 'min-h-[44px] px-6 py-3 rounded-xl font-medium transition-all touch-manipulation';
+  const variantClasses = variant === 'primary'
+    ? 'bg-neumorphic-accent text-white neumorphic-raised hover:brightness-110'
+    : 'bg-neumorphic-surface text-neumorphic-text neumorphic-raised hover:brightness-95';
+  const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : '';
+
   return (
     <button
-      className={`
-        neumorphic-button
-        ${variant === 'primary' ? 'bg-neumorphic-accent text-white' : 'bg-neumorphic-base text-neumorphic-text'}
-        px-6 py-3 rounded-xl font-medium
-        transition-all duration-200
-        active:neumorphic-pressed
-        disabled:opacity-50 disabled:cursor-not-allowed
-        flex items-center justify-center
-        min-h-[44px] min-w-[44px]
-        touch-manipulation
-        ${className}
-      `}
+      className={`${baseClasses} ${variantClasses} ${disabledClasses} ${className}`}
       disabled={disabled}
       {...props}
     >

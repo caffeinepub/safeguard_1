@@ -1,118 +1,36 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "A mobile-friendly checklist app with neumorphic UI for store safety inspections. Users enter store name, complete predefined checklist items, capture photos, and generate PDF reports.",
+  "projectStateVersion": 3,
+  "summary": "Website with checklist functionality: submit checklist to generate PDF, download button appears, reset button to clear checklist for repeat downloads",
   "architectural_notes": [
-    "No file uploads allowed - camera capture only",
-    "No Caffeine AI branding in footer",
-    "Client-side PDF generation required",
-    "Neumorphic design system with soft shadows and subtle depth",
-    "Inline camera view (not popup) for photo capture per checklist item"
+    "PDF generation triggered on checklist submission",
+    "Download button persists until reset action",
+    "Reset button clears checklist state for repeat submissions"
   ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-create-a-store-name-input-field-that-users-can-fill-before-starting-the-checklist",
-      "title": "Create a store name input field that users can fill before starting the checklist",
+      "id": "feature-after-checklist-submission-display-a-download-pdf-button-that-allows-the-user-to-manually-download-the-generated-pdf",
+      "title": "After checklist submission, display a 'Download PDF' button that allows the user to manually download the generated PDF",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-a-predefined-checklist-with-exactly-7-items-drive-thru-window-back-door-front-door-upstairs-door-cash-collected-onlinehm-app-closed-staff-toilet",
-      "title": "Implement a predefined checklist with exactly 7 items: Drive thru window, Back door, Front door, Upstairs door, Cash collected, OnlineHM App closed, Staff toilet",
+      "id": "feature-keep-the-pdf-download-button-visible-and-functional-on-the-website-until-the-user-explicitly-clicks-a-reset-button",
+      "title": "Keep the PDF download button visible and functional on the website until the user explicitly clicks a Reset button",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-in-app-camera-integration-that-allows-users-to-capture-photos-directly-within-the-app-for-each-checklist-point-with-no-file-upload-functionality",
-      "title": "Add in-app camera integration that allows users to capture photos directly within the app for each checklist point, with no file upload functionality",
+      "id": "feature-add-a-reset-button-that-clears-the-checklist-removes-the-pdf-download-button-and-allows-the-user-to-start-a-new-checklist-submission",
+      "title": "Add a 'Reset' button that clears the checklist, removes the PDF download button, and allows the user to start a new checklist submission",
       "reqIds": [
         "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-reset-the-checklist-form-after-submission-clearing-all-inputs-checkboxes-and-captured-photos",
-      "title": "Reset the checklist form after submission, clearing all inputs, checkboxes, and captured photos",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-generate-and-allow-download-of-a-pdf-report-containing-the-store-name-all-checklist-items-with-their-statuses-captured-photos-and-submission-timestamp",
-      "title": "Generate and allow download of a PDF report containing the store name, all checklist items with their statuses, captured photos, and submission timestamp",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-neumorphic-design-system-throughout-the-entire-ui-with-soft-shadows-subtle-depth-effects-and-smooth-surfaces",
-      "title": "Implement neumorphic design system throughout the entire UI with soft shadows, subtle depth effects, and smooth surfaces",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-remove-caffeine-ai-branding-from-the-footer-or-any-visible-area-of-the-application",
-      "title": "Remove Caffeine AI branding from the footer or any visible area of the application",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-optimize-the-entire-application-for-mobile-browser-usage-with-responsive-layout-touch-friendly-controls-and-appropriate-viewport-settings",
-      "title": "Optimize the entire application for mobile browser usage with responsive layout, touch-friendly controls, and appropriate viewport settings",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-small-attach-image-button-next-to-each-of-the-7-checklist-items-drive-thru-window-back-door-front-door-upstairs-door-cash-collected-onlinehm-app-closed-staff-toilet",
-      "title": "Add a small attach image button next to each of the 7 checklist items (Drive thru window, Back door, Front door, Upstairs door, Cash collected, OnlineHM App closed, Staff toilet)",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-when-user-clicks-the-attach-image-button-display-an-inline-camera-interface-within-the-screen-not-as-a-popup-or-modal-that-allows-photo-capture",
-      "title": "When user clicks the attach image button, display an inline camera interface within the screen (not as a popup or modal) that allows photo capture",
-      "reqIds": [
-        "REQ-11"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-allow-users-to-associate-the-captured-photo-with-the-specific-checklist-item-that-triggered-the-camera",
-      "title": "Allow users to associate the captured photo with the specific checklist item that triggered the camera",
-      "reqIds": [
-        "REQ-12"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-pdf-generation-to-include-all-captured-photos-showing-each-photo-next-to-its-corresponding-checklist-item",
-      "title": "Update the PDF generation to include all captured photos, showing each photo next to its corresponding checklist item",
-      "reqIds": [
-        "REQ-14"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-form-reset-functionality-to-clear-all-per-item-photos-when-the-form-is-reset-after-submission",
-      "title": "Update form reset functionality to clear all per-item photos when the form is reset after submission",
-      "reqIds": [
-        "REQ-15"
       ],
       "version": 1
     }
@@ -120,71 +38,24 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Store name input field",
+      "summary": "Add PDF download button after checklist submission",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Predefined checklist with 7 items (Drive thru window, Back door, Front door, Upstairs door, Cash collected, OnlineHM App closed, Staff toilet)",
+      "summary": "Add Reset button to clear checklist and allow repeat PDF downloads",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-3",
-      "summary": "In-app camera integration for capturing photos with checklist points",
+      "summary": "Keep PDF download available until user clicks Reset",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Checklist reset after submission",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "PDF generation and download of submitted checklist",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Neumorphic UI design implementation",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-7",
-      "summary": "Mobile browser compatibility optimization",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-11",
-      "summary": "Store checklist submissions in the backend with store name, checklist item statuses, captured photo data, and timestamp",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "status": "pending"
-    },
-    {
-      "id": "AR-12",
-      "summary": "Add attach image button per checklist item that opens inline camera (not popup) for photo capture",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-16",
-      "summary": "Update the backend submission logic to accept multiple photos, one per checklist item, instead of a single photo for the entire form",
-      "reqIds": [
-        "REQ-13"
-      ],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "SafeGuard",
+  "projectName": "Add persistent PDF download and reset functionality",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
